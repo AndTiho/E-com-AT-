@@ -5,7 +5,7 @@
 ## Установка:
 1. Клонируйте репозиторий:
 ```
-git@github.com:AndTiho/Project-ATBank.git
+git@github.com:AndTiho/E-com-AT-.git
 ```
 2. Установите зависимости:
 ```

@@ -6,7 +6,7 @@ from src.category import Category
 from src.product import Product
 
 
-def json_to_python_data(path: str) -> Any[dict]:
+def json_to_python_data(path: str) -> Any:
     """Функция для преобразования JSON данных в данные для работы в Python"""
     full_path = os.path.join(os.path.dirname(__file__), path)
     with open(full_path, "r", encoding="utf-8") as file:
