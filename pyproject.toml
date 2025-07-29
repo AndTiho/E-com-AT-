@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "e-com(at)"
+name = "E-com(AT)"
 version = "0.1.0"
 description = ""
 authors = ["Andrei Tihomirov <moon200505@mail.ru>"]
