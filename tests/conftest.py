@@ -51,10 +51,11 @@ def json_test_data():
 
 @pytest.fixture
 def new_product_dict():
-    return {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
-         "quantity": 5}
+    return {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера",
+            "price": 180000.0, "quantity": 5}
+
 
 @pytest.fixture
 def next_new_product_dict():
-    return {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 200000.0,
-         "quantity": 10}
+    return {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера",
+            "price": 200000.0, "quantity": 10}

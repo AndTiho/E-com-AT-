@@ -1,4 +1,4 @@
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
 from src.product import Product
 
@@ -8,6 +8,7 @@ def test_product(product_sample_1):
     assert product_sample_1.description == "Фоновая подсветка"
     assert product_sample_1.price == 123000.0
     assert product_sample_1.quantity == 7
+
 
 def test_new_product(new_product_dict, next_new_product_dict):
     test_prod_list = []
@@ -29,7 +30,8 @@ def test_new_product(new_product_dict, next_new_product_dict):
     assert new_product.price == 200000.0
     assert new_product.quantity == 15
 
-def test_price(capsys,product_sample_1):
+
+def test_price(capsys, product_sample_1):
     product_sample_1.price = -100
     assert product_sample_1.price == 123000.0
     captured = capsys.readouterr()
