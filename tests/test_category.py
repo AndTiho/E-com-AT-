@@ -19,3 +19,10 @@ def test_category(category_sample_1, category_sample_2):
 
     assert category_sample_1.category_count == 2
     assert category_sample_1.product_count == 2
+
+    assert category_sample_1.products == '55" QLED 4K, 123000.0. Остаток: 7\n'
+
+    category_sample_1.add_product(product_1)
+
+    assert category_sample_1.products == '55" QLED 4K, 123000.0. Остаток: 7\nSamsung Galaxy S23 Ultra, 180000.0. Остаток: 5\n'
+    assert category_sample_1.product_count == 3
