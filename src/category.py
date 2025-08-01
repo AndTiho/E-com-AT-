@@ -13,6 +13,7 @@ class Category:
     product_count = 0
 
     def __init__(self, name: str, description: str, products: list) -> None:
+        """Инициируется объёкт включающий свойства 'имя','описание','продукты'."""
         self.name = name
         self.description = description
         self.__products = products
@@ -22,15 +23,19 @@ class Category:
 
     @property
     def get_products(self) -> list:
+        """Свойство позволяющее получить данные из приватного атрибута продуктов"""
         return self.__products
 
     @property
     def products(self) -> str:
+        """Свойство позволяющее получить данные из приватного атрибута продуктов
+        в развёрнутом виде"""
         product_str = ''
         for product in self.__products:
             product_str += f'{product.name}, {product.price}. Остаток: {product.quantity}\n'
         return product_str
 
     def add_product(self, product: Product) -> None:
+        """Метод для добавления нового продукта в категорию"""
         self.__products.append(product)
         Category.product_count += 1

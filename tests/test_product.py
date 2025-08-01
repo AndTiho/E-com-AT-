@@ -38,11 +38,14 @@ def test_price(capsys, product_sample_1):
     assert captured.out == "Цена не должна быть нулевая или отрицательная\n"
     product_sample_1.price = 0
     assert product_sample_1.price == 123000.0
+    product_sample_1.price = 1000000
+    assert product_sample_1.price == 1000000
+
 
 
 @patch('builtins.input', return_value='Y')
 def test_price_with_input(mock_input):
     test_obj = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-    test_obj.price = 80.0  # Установка текущей цены
-    mock_input.assert_called_once()  # Проверяем вызов input
-    assert test_obj.price == 80.0  # Проверяем изменение цены
+    test_obj.price = 80.0
+    mock_input.assert_called_once()
+    assert test_obj.price == 80.0

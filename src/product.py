@@ -57,3 +57,5 @@ class Product:
             user_answer = input('Заявленная цена ниже текущей, заменить? Y/N')
             if user_answer.lower() == 'y':
                 self.__price = value
+        else:
+            self.__price = value
