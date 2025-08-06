@@ -21,6 +21,14 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(self.__products)
 
+    def __str__(self) -> str:
+        """Маги метод для вывода в строковой форме для пользователя наименование запрашиваемой категории
+        и подсчёт сколько в данной категории всего товаров"""
+        prod_count = 0
+        for product in self.__products:
+            prod_count += product.quantity
+        return f"{self.name}, количество продуктов: {prod_count} шт."
+
     @property
     def get_products(self) -> list:
         """Свойство позволяющее получить данные из приватного атрибута продуктов"""
@@ -30,9 +38,9 @@ class Category:
     def products(self) -> str:
         """Свойство позволяющее получить данные из приватного атрибута продуктов
         в развёрнутом виде"""
-        product_str = ''
+        product_str = ""
         for product in self.__products:
-            product_str += f'{product.name}, {product.price}. Остаток: {product.quantity}\n'
+            product_str += f"{product}\n"
         return product_str
 
     def add_product(self, product: Product) -> None:
