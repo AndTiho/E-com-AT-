@@ -43,7 +43,7 @@ class Category:
             product_str += f"{product}\n"
         return product_str
 
-    def add_product(self, product: Product) -> None:
+    def add_product(self, product: Product | str) -> None:
         """Метод для добавления нового продукта в категорию, если:
         он является классом Продукты или его наследником"""
         if isinstance(product, Product):

@@ -23,7 +23,7 @@ class Smartphone(Product):
         self.memory = memory
         self.color = color
 
-    def __add__(self, other: "Smartphone") -> float:
+    def __add__(self, other: "Product") -> float:
         """Маги метод для сложения двух продуктов в виде:
         (цена запрашиваемого товара * количество) + (цена другого товара * количество),
         если они оба являются классом Смартфоны"""

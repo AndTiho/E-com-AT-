@@ -21,7 +21,7 @@ class LawnGrass(Product):
         self.germination_period = germination_period
         self.color = color
 
-    def __add__(self, other: "LawnGrass") -> float:
+    def __add__(self, other: "Product") -> float:
         """Маги метод для сложения двух продуктов в виде:
         (цена запрашиваемого товара * количество) + (цена другого товара * количество),
         если они оба являются классом Трава Газонная"""

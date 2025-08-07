@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_category(category_sample_1, category_sample_2):
     assert category_sample_1.name == "Телевизоры"
     assert category_sample_1.description == (
@@ -34,3 +37,18 @@ def test_category(category_sample_1, category_sample_2):
 
 def test_category_str(category_sample_1):
     assert str(category_sample_1) == "Телевизоры, количество продуктов: 7 шт."
+
+
+def test_errors(category_smart_1):
+    with pytest.raises(TypeError):
+        category_smart_1.add_product("Not a product")
+
+
+def test_add_product(category_smart_1, smartphone_3):
+    category_smart_1.add_product(smartphone_3)
+
+    assert (
+        category_smart_1.products == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.\n"
+                                     "Iphone 15, 210000.0 руб. Остаток: 8 шт.\n"
+                                     "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n")
+    assert category_smart_1.category_count == 5
