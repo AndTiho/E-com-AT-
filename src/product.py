@@ -23,7 +23,10 @@ class Product:
     def __add__(self, other: "Product") -> float:
         """Маги метод для сложения двух продуктов в виде:
         (цена запрашиваемого товара * количество) + (цена другого товара * количество)"""
-        return self.price * self.quantity + other.price * other.quantity
+        if type(other) is Product:
+            return self.price * self.quantity + other.price * other.quantity
+        else:
+            raise TypeError
 
     @classmethod
     def new_product(cls, prod_dict: dict, prod_list: list) -> Any:
