@@ -12,8 +12,7 @@ def test_product(product_sample_1):
 
 def test_new_product(new_product_dict, next_new_product_dict):
     test_prod_list = []
-    new_product = Product.new_product(
-        new_product_dict, test_prod_list)
+    new_product = Product.new_product(new_product_dict, test_prod_list)
     test_prod_list.append(new_product)
 
     assert new_product.name == "Samsung Galaxy S23 Ultra"
@@ -21,8 +20,7 @@ def test_new_product(new_product_dict, next_new_product_dict):
     assert new_product.price == 180000.0
     assert new_product.quantity == 5
 
-    same_new_product = Product.new_product(
-        next_new_product_dict, test_prod_list)
+    same_new_product = Product.new_product(next_new_product_dict, test_prod_list)
     test_prod_list.append(same_new_product)
 
     assert new_product.name == "Samsung Galaxy S23 Ultra"
@@ -42,10 +40,17 @@ def test_price(capsys, product_sample_1):
     assert product_sample_1.price == 1000000
 
 
-
-@patch('builtins.input', return_value='Y')
+@patch("builtins.input", return_value="Y")
 def test_price_with_input(mock_input):
     test_obj = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     test_obj.price = 80.0
     mock_input.assert_called_once()
     assert test_obj.price == 80.0
+
+
+def test_product_str(product_sample_1):
+    assert str(product_sample_1) == '55" QLED 4K, 123000.0 руб. Остаток: 7 шт.'
+
+
+def test_product_add(product_sample_1, product_sample_2):
+    assert product_sample_1 + product_sample_2 == 1761000
