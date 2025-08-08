@@ -1,5 +1,7 @@
 from unittest.mock import patch
 
+import pytest
+
 from src.product import Product
 
 
@@ -54,3 +56,8 @@ def test_product_str(product_sample_1):
 
 def test_product_add(product_sample_1, product_sample_2):
     assert product_sample_1 + product_sample_2 == 1761000
+
+
+def test_errors(product_sample_1):
+    with pytest.raises(TypeError):
+        print(product_sample_1 + 1)
