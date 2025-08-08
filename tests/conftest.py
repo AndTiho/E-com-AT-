@@ -122,6 +122,7 @@ def grass_2():
 def category_smart_1(smartphone_1, smartphone_2):
     return Category("Смартфоны", "Высокотехнологичные смартфоны", [smartphone_1, smartphone_2])
 
+
 @pytest.fixture
 def order_1(grass_1):
     return Order(grass_1, 5)

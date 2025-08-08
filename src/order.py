@@ -1,8 +1,10 @@
 from src.product import Product
 
+
 class Order:
-    """ Класс-ссылка на то, какой товар был куплен, количество купленного товара, а также итоговая стоимость. """
-    def __init__(self, product, quantity):
+    """Класс-ссылка на то, какой товар был куплен, количество купленного товара, а также итоговая стоимость."""
+
+    def __init__(self, product: Product, quantity: int) -> None:
         """Инициируем объект класса для оформления заказа включающий свойства:
         Товар, заказываемое количество, и общую стоимость заказываемого товара"""
         if not isinstance(product, Product):
@@ -16,17 +18,14 @@ class Order:
 
         self.total = self.total_price()
 
-
-    def __str__(self):
+    def __str__(self) -> str:
         """Метод для вывода информации пользователю"""
-        return f'Покупаете : {self.product.name} в количеств: {self.quantity} шт. С вас {self.total} руб.'
+        return f"Покупаете : {self.product.name} в количеств: {self.quantity} шт. С вас {self.total} руб."
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """Метод для вывода информации для отладки"""
-        return f'{self.__class__.__name__}({self.product.name}, {self.quantity}, {self.total})'
+        return f"{self.__class__.__name__}({self.product.name}, {self.quantity}, {self.total})"
 
-
-    def total_price(self):
+    def total_price(self) -> float:
         """Метод для подсчёта финальной стоимости заказываемого товара"""
         return self.product.price * self.quantity
-
