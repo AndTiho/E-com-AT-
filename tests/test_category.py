@@ -49,6 +49,7 @@ def test_add_product(category_smart_1, smartphone_3):
 
     assert (
         category_smart_1.products == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.\n"
-                                     "Iphone 15, 210000.0 руб. Остаток: 8 шт.\n"
-                                     "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n")
+        "Iphone 15, 210000.0 руб. Остаток: 8 шт.\n"
+        "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n"
+    )
     assert category_smart_1.category_count == 5

@@ -35,7 +35,9 @@ def test_price(capsys, product_sample_1):
     product_sample_1.price = -100
     assert product_sample_1.price == 123000.0
     captured = capsys.readouterr()
-    assert captured.out == "Цена не должна быть нулевая или отрицательная\n"
+    assert captured.out == (
+        'Product(55" QLED 4K, Фоновая подсветка, 123000.0, 7)\n' "Цена не должна быть нулевая или отрицательная\n"
+    )
     product_sample_1.price = 0
     assert product_sample_1.price == 123000.0
     product_sample_1.price = 1000000
