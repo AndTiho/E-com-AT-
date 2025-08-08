@@ -2,6 +2,7 @@ import pytest
 
 from src.category import Category
 from src.lawn_grass import LawnGrass
+from src.order import Order
 from src.prod_iterator import ProductIterator
 from src.product import Product
 from src.smartphone import Smartphone
@@ -120,3 +121,7 @@ def grass_2():
 @pytest.fixture
 def category_smart_1(smartphone_1, smartphone_2):
     return Category("Смартфоны", "Высокотехнологичные смартфоны", [smartphone_1, smartphone_2])
+
+@pytest.fixture
+def order_1(grass_1):
+    return Order(grass_1, 5)
