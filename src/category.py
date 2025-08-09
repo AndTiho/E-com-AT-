@@ -47,11 +47,15 @@ class Category:
     def add_product(self, product: Product | str) -> None:
         """Метод для добавления нового продукта в категорию, если:
         он является классом Продукты или его наследником"""
-        if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
-        else:
-            raise MyErrors("Переданный объект не является товаром")
+        try:
+            if isinstance(product, Product):
+                self.__products.append(product)
+                Category.product_count += 1
+                print('Товар успешно добавлен.')
+            else:
+                raise MyErrors("Переданный объект не является товаром")
+        finally:
+            print('Обработка добавления товара завершена.')
 
     def middle_price(self) -> float | int:
         result = 0
