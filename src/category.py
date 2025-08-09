@@ -1,3 +1,4 @@
+from src.exceptions import MyCustomError
 from src.product import Product
 
 
@@ -50,7 +51,7 @@ class Category:
             self.__products.append(product)
             Category.product_count += 1
         else:
-            raise TypeError
+            raise MyCustomError('Переданный объект не является товаром')
 
     def middle_price(self):
         result = 0
