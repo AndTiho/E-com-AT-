@@ -127,6 +127,7 @@ def category_smart_1(smartphone_1, smartphone_2):
 def order_1(grass_1):
     return Order(grass_1, 5)
 
+
 @pytest.fixture
 def category_empty():
     return Category("Пустая категория", "Категория без продуктов", [])

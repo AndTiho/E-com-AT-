@@ -1,14 +1,4 @@
-
-
-# Создаем собственный класс исключения
-class MyCustomError(Exception):
+class MyErrors(Exception):
     def __init__(self, message):
-        super().__init__(message)  # Передаем сообщение базовому классу
+        super().__init__(message)
         self.message = message
-
-# Пример использования
-try:
-    # Имитируем ошибку
-    raise MyCustomError("Произошла критическая ошибка!")
-except MyCustomError as e:
-    print(f"Поймано исключение: {e.message}")
