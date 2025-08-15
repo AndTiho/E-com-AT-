@@ -1,3 +1,4 @@
+from src.exceptions import MyErrors
 from src.product import Product
 
 
@@ -46,8 +47,22 @@ class Category:
     def add_product(self, product: Product | str) -> None:
         """Метод для добавления нового продукта в категорию, если:
         он является классом Продукты или его наследником"""
-        if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
-        else:
-            raise TypeError
+        try:
+            if isinstance(product, Product):
+                self.__products.append(product)
+                Category.product_count += 1
+                print('Товар успешно добавлен.')
+            else:
+                raise MyErrors("Переданный объект не является товаром")
+        finally:
+            print('Обработка добавления товара завершена.')
+
+    def middle_price(self) -> float | int:
+        result = 0
+        for prod in self.__products:
+            result += prod.price
+        try:
+            result = result / len(self.__products)
+            return result
+        except ZeroDivisionError:
+            return result

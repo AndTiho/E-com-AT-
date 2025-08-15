@@ -1,3 +1,4 @@
+from src.exceptions import MyErrors
 from src.product import Product
 
 
@@ -8,7 +9,7 @@ class Order:
         """Инициируем объект класса для оформления заказа включающий свойства:
         Товар, заказываемое количество, и общую стоимость заказываемого товара"""
         if not isinstance(product, Product):
-            raise ValueError("Переданный объект не является товаром")
+            raise MyErrors("Переданный объект не является товаром")
 
         self.product = product
         if product.quantity >= quantity:

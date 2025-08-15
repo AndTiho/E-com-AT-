@@ -1,5 +1,6 @@
 import pytest
 
+from src.exceptions import MyErrors
 from src.order import Order
 
 
@@ -24,6 +25,6 @@ def test_repr(order_1):
 
 
 def test_product_is_gone():
-    with pytest.raises(ValueError) as excinfo:
+    with pytest.raises(MyErrors) as excinfo:
         Order("", 105)
     assert str(excinfo.value) == "Переданный объект не является товаром"

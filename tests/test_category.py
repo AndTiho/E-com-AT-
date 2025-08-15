@@ -1,5 +1,7 @@
 import pytest
 
+from src.exceptions import MyErrors
+
 
 def test_category(category_sample_1, category_sample_2):
     assert category_sample_1.name == "Телевизоры"
@@ -40,7 +42,7 @@ def test_category_str(category_sample_1):
 
 
 def test_errors(category_smart_1):
-    with pytest.raises(TypeError):
+    with pytest.raises(MyErrors):
         category_smart_1.add_product("Not a product")
 
 
@@ -53,3 +55,11 @@ def test_add_product(category_smart_1, smartphone_3):
         "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n"
     )
     assert category_smart_1.category_count == 5
+
+
+def test_products_0(category_empty):
+    assert category_empty.middle_price() == 0
+
+
+def test_middle_price(category_smart_1):
+    assert category_smart_1.middle_price() == 195000.0

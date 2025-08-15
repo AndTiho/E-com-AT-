@@ -6,9 +6,9 @@ class BaseProduct(ABC):
 
     @abstractmethod
     def __add__(self, other) -> Any:
-        pass
+        pass # pragma: no cover
 
     @classmethod
     @abstractmethod
     def new_product(cls, *args, **kwargs) -> Any:
-        pass
+        pass # pragma: no cover
